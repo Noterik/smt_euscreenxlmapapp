@@ -13,6 +13,10 @@ public class EuscreenxlmapApplication extends Html5Application{
 		this.addReferid("terms", "/euscreenxlelements/terms");
 		this.addReferid("linkinterceptor", "/euscreenxlelements/linkinterceptor");
 		
+		this.addReferidCSS("elements", "/euscreenxlelements/generic");
+		this.addReferidCSS("bootstrap", "/euscreenxlelements/bootstrap");
+		this.addReferidCSS("jqvmap", "/euscreenxlelements/jqvmap");
+		
 	}
 
 }

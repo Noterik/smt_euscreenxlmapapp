@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,600italic);
 /**
 * css/item/all.less
 *
@@ -41,26 +40,6 @@
   font-family: 'Titillium Web', 'DIN', "Helvetica Neue", Monaco, "Andale Mono", Consolas, monospace;
   display: block;
 }
-.content-map .main .row.content .info .data .provider-list {
-  border-bottom: 1px solid #f2f2f2;
-  display: block;
-  padding: 8px 0 15px 0;
-}
-.content-map .main .row.content .info .data .provider-list:last-child {
-  border: 0px;
-  padding-bottom: 0px;
-}
-.content-map .main .row.content .info .data .provider-list .box-link {
-  font-family: 'Proxima Nova', Helvetica, Arial, sans-serif;
-  font-size: 0.78em;
-  padding: 7px 10px 5px;
-  margin-top: 5px;
-}
-.content-map .main .row.content .info .data .provider-list .box-link:hover,
-.content-map .main .row.content .info .data .provider-list .box-link:active {
-  color: #8cc63f;
-  border-color: #8cc63f;
-}
 .content-map .main .row.content .info .search-link {
   margin: 0;
   padding: 0;
@@ -81,14 +60,12 @@
   color: #8cc63f;
 }
 .content-map .main .row.content .maps {
+  background: #fff;
   padding-left: 0px;
   padding-right: 0px;
   margin-top: 6px;
   border-left: 6px solid #f2f2f2;
   border-right: 6px solid #f2f2f2;
-}
-.content-map .main .row.content .maps .alert {
-  display: none;
 }
 .content-map .main .row.content .maps img {
   width: 100%;
