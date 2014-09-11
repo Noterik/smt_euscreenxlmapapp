@@ -5,7 +5,7 @@ var Template = function () {
 	mapSize = {};
     
  // get vmap size
-    mapSize.width = $('.maps').width() + 30; // 30 is the padding
+    mapSize.width = $('.maps').width();// + 30; // 30 is the padding
     mapSize.height =  (mapSize.width * 3) / 4 + 15;
     
     // set map size
@@ -26,13 +26,18 @@ var Template = function () {
         onRegionClick: function(element, code, region)
         {
             // on region click
-            // get region data
+        	// get region data
             if(mapData[code] != undefined) {
 
+                // show result section
+                if($('.results-section').css('display') != "block") {
+                    $('.results-section').css({'display': 'block'});
+                }
+                
                 // variables
                 var countryData = mapData[code],
                     countryProvider = countryData['providers'],
-                    mediaAmount = {'videos': 0, 'audios': 0, 'images': 0, 'texts': 0},
+                    mediaAmount = {'videos': 0, 'audios': 0, 'images': 0, 'texts': 0, 'series': 0},
                     providerLink = "",
                     providerList = "";
             
@@ -42,13 +47,14 @@ var Template = function () {
                     // set url
                     //var url = "<li><a href='search-results.html?provider="+item+"'>SEARCH "+item.toUpperCase()+" CONTENT</a></li>";
                     //providerLink += url;
-                    providerList += "<span class='provider-list'>"+countryProvider[item].name+ " ("+item.toUpperCase()+") <a href='/search.html?activeFields=%7B\"provider\"%3A%5B\""+item+"\"%5D%7D' class='box-link'>SEARCH "+item.toUpperCase()+" CONTENT</a></span>";
+                    providerList += "<span class='provider-list'>"+countryProvider[item].name+ " ("+item.toUpperCase()+") <a href='/search.html?activeFields=%7B\"provider\"%3A%5B\""+escape(item)+"\"%5D%7D' class='box-link'>SEARCH "+item.toUpperCase()+" CONTENT</a></span>";
                     
                     // add the media
                     mediaAmount['videos'] += countryProvider[item].videos;
                     mediaAmount['audios'] += countryProvider[item].audios;
                     mediaAmount['images'] += countryProvider[item].images;
                     mediaAmount['texts'] += countryProvider[item].texts;
+                    mediaAmount['series'] += countryProvider[item].series;
                 }
 
                 // get general info like country name
@@ -59,6 +65,7 @@ var Template = function () {
                 $('#selected-audios').html(mediaAmount['audios']);
                 $('#selected-images').html(mediaAmount['images']);
                 $('#selected-texts').html(mediaAmount['texts']);
+                $('#selected-series').html(mediaAmount['series']);
 
                 // set providers info
                 //$('#selected-searchlink').html(providerLink);
@@ -87,7 +94,9 @@ var Template = function () {
         for (var item in data) {
             colorsST[item] = highlightColor;
         }
-
+        
+        console.log(colorsST);
+        
         // set
         $('#vmap').vectorMap('set', 'colors', colorsST);
     });
