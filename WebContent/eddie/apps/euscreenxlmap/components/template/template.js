@@ -1,7 +1,16 @@
 var Template = function () {
     Component.apply(this, arguments);
+    var self = this;
     
-    var mapData = {},
+    setTimeout(function(){
+    	self.initMap();
+    }, 250);
+    
+};
+
+Template.prototype = Object.create(Component.prototype);
+Template.prototype.initMap = function(){
+	var mapData = {},
 	mapSize = {};
     
  // get vmap size
@@ -101,5 +110,3 @@ var Template = function () {
         $('#vmap').vectorMap('set', 'colors', colorsST);
     });
 };
-
-Template.prototype = Object.create(Component.prototype);
