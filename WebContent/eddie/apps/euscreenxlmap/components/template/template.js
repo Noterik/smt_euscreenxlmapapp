@@ -38,7 +38,7 @@ var Template = function () {
                         // set url
                         //var url = "<li><a href='search-results.html?provider="+item+"'>SEARCH "+item.toUpperCase()+" CONTENT</a></li>";
                         //providerLink += url;
-                        providerList += "<span class='provider-list'>"+countryProvider[item].name+ " ("+item.toUpperCase()+") <a href='/search.html?activeFields=%7B\"provider\"%3A%5B\""+escape(item)+"\"%5D%7D' class='box-link'>SEARCH "+item.toUpperCase()+" CONTENT</a></span>";
+                        providerList += "<span class='provider-list'>"+countryProvider[item].name+ " ("+item.toUpperCase()+") <a href='/search.html?query=*&activeFields=%7B\"provider\"%3A%5B\""+escape(item)+"\"%5D%7D' class='box-link'>SEARCH "+item.toUpperCase()+" CONTENT</a></span>";
                         
                         // add the media
                         mediaAmount['videos'] += countryProvider[item].videos;
