@@ -6,76 +6,88 @@
 	
 	<!-- about content -->
 	<div class="container main">
-		
 		<!-- selection -->
-		<div class="row">
-			<div class="col-md-12 jumbotron-small map">
-				<span class="hue green">
-					<div class="pads">
-						<h1>Explore The EUscreen Collection</h1>
-					</div>
-				</span>
-			</div>
-		</div>
+    	<div class="row">
+    		<div class="col-md-12 jumbotron-small map">
+    			<span class="hue green">
+    				<div class="pads">
+        				<h1>Explore The EUscreen Collection</h1>
+    				</div>
+    			</span>
+    		</div>
+    	</div>
 
-		<!-- selection -->
-		<div class="content-text row">
-			<div class="col-md-12">
-				<h1>Explore The EUscreen Collection</h1>
-				<p>
-					The EUscreen portal provides access to television clips and programmes from broadcasters and broadcast archives from 20 European countries. The EUscreen collection contains nearly 60 000 media items, mostly videos, but it also includes photographs, audio files and documents. All items have been hand-picked by experienced archivists and researchers for inclusion in this collection. Select a country to find out more about the EUscreen collection.
-				</p>
-			</div>
-		</div>
-		
-		<!-- content -->
-		<div class="content row">
-			
-			<!-- left side -->
-			<div class="info col-md-3 col-sm-3">
-				
-				<!-- data -->
-				<div class="data">
-					<h1 id="selected-country">Please select region on the map</h1>
-					<div id="results-section" class="results-section">
-						<div>
-							<span class="header">VIDEOS</span>
-							<span class="counter" id="selected-videos">0</span>
-						</div>
-						<div>
-							<span class="header">IMAGES</span>
-							<span class="counter" id="selected-images">0</span>
-						</div>
-						<div>
-							<span class="header">TEXTS</span>
-							<span class="counter" id="selected-texts">0</span>
-						</div>
-						<div>
-							<span class="header">AUDIO</span>
-							<span class="counter" id="selected-audios">0</span>
-						</div>
-						<div>
-							<span class="header">SERIES</span>
-							<span class="counter" id="selected-series">0</span>
-						</div>
-						<div>
-							<span class="header">PROVIDERS</span>
-							<span class="provider" id="selected-providers">-</span>
-						</div>
-					</div>
-				</div>
-				
-				<!-- navigation -->
-				<ul class="search-link" id="selected-searchlink"></ul>
-			</div>
-			
-			<!-- the map -->
-			<div class="maps col-md-9 col-sm-9">
-				
-				<!-- map -->
-				<div class="vmap" id="vmap"></div>
-			</div>
-		</div>
+        <!-- selection -->
+        <div class="content-text row">
+            <div class="col-md-12">
+                <h1>Explore The EUscreen Collection</h1>
+                <p>
+                    The EUscreen portal provides access to television clips and programmes from broadcasters and broadcast archives from 20 European countries. The EUscreen collection contains nearly 60 000 media items, mostly videos, but it also includes photographs, audio files and documents. All items have been hand-picked by experienced archivists and researchers for inclusion in this collection. Select a country to find out more about the EUscreen collection.
+                </p>
+            </div>
+        </div>
+
+        <!-- selection -->
+        <div class="map-notification visible-xs row">
+            <div class="col-md-12">
+                <p>
+                    Unfortunately Explore The Euscreen Collection only works in tablet or desktop. Please use bigger devices to access this page.
+                </p>
+            </div>
+        </div>
+    	
+    	<!-- content -->
+    	<div class="content hidden-xs">
+    		
+    		<!-- left side -->
+            <div class="info-wrap">
+        		<div class="info" data-spy="affix" data-offset-top="178" data-offset-bottom="0">
+        			
+        			<!-- data -->
+        			<div class="data">
+            			<h1 id="selected-country">Please select region on the map</h1>
+            			<div id="results-section" class="results-section">
+                            <div class="country-counter">
+		            			<div class="item">
+		            				<span class="header">VIDEOS</span>
+		            				<span class="counter" id="selected-videos">0</span>
+		            			</div>
+		            			<div class="item">
+		            				<span class="header">IMAGES</span>
+		            				<span class="counter" id="selected-images">0</span>
+		            			</div>
+		            			<div class="item">
+		            				<span class="header">DOCUMENTS</span>
+		            				<span class="counter" id="selected-texts">0</span>
+		            			</div>
+		            			<div class="item">
+		            				<span class="header">AUDIO</span>
+		            				<span class="counter" id="selected-audios">0</span>
+		            			</div>
+		            			<div class="item">
+		            				<span class="header">SERIES</span>
+		            				<span class="counter" id="selected-series">0</span>
+		            			</div>
+                            </div>
+	            			<div class="providers">
+	            				<span class="header">PROVIDERS</span>
+	            				<span class="provider" id="selected-providers">-</span>
+	            			</div>
+            			</div>
+        			</div>
+        			
+        			<!-- navigation -->
+        			<ul class="search-link" id="selected-searchlink"></ul>
+        		</div>
+            </div>
+    		
+    		<!-- the map -->
+    		<div class="maps">
+        		
+                <!-- map -->
+                <div class="vmap" id="vmap"></div>
+    		</div>
+    	</div>
 	</div>
 	
 	
