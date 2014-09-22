@@ -1,5 +1,6 @@
 package org.springfield.lou.application.types;
 
+import org.json.simple.JSONObject;
 import org.springfield.lou.application.Html5Application;
 import org.springfield.lou.screen.Screen;
 
@@ -22,18 +23,34 @@ public class EuscreenxlmapApplication extends Html5Application{
 				
 	}
  	
- 	public void initMap(Screen s){
+ 	public void initMapTablet(Screen s){
  		System.out.println("initMap()");
+ 		
  		String regionCode = s.getParameter("code");
+ 		
+ 		JSONObject args = new JSONObject();
+ 		args.put("device", "tablet");
  		 		
- 		String command;
  		if(regionCode != null){
- 			command = "initMap(" + regionCode + ")";
- 		}else{
- 			command = "initMap()";
+ 			args.put("region", regionCode);
  		}
  		
- 		s.putMsg("template", "", command);
+ 		s.putMsg("template", "", "initMap(" + args + ")");
+ 	}
+ 	
+ 	public void initMap(Screen s){
+ 		System.out.println("initMap()");
+ 		
+ 		String regionCode = s.getParameter("code");
+ 		
+ 		JSONObject args = new JSONObject();
+ 		 		
+ 		if(regionCode != null){
+ 			args.put("region", regionCode);
+ 		}
+ 		
+ 		s.putMsg("template", "", "initMap(" + args + ")");
  		
  	};
+ 	
 }

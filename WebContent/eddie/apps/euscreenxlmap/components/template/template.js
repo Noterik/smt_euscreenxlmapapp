@@ -5,8 +5,9 @@ var Template = function () {
     var mapData = {};
     var mapSize = {};
     
-    self.initMap = function(region){
-    	console.log("initMap(" + region + ")");
+    self.initMap = function(data){
+    	var params = JSON.parse(data);
+    	console.log("initMap(" + data + ")");
     	var args = {
 			map: 'europe_en',
             enableZoom: true,
@@ -74,6 +75,17 @@ var Template = function () {
             }
     	}
     	
+    	// window width
+        if(params.device == "tablet") {
+        	// this is tablet horizontal 
+        	args.tooltip = false;
+        } else {
+
+        	// activate tooltip, this is desktop
+        	args.tooltip = true; 
+        }
+
+    	
     	 // get vmap size
         mapSize.width = $('.maps').width();// + 30; // 30 is the padding
         mapSize.height =  (mapSize.width * 3) / 4 + 15;
@@ -109,7 +121,7 @@ var Template = function () {
             
             // set
             $('#vmap').vectorMap('set', 'colors', colorsST);
-            $('#jqvmap1_' + region).click();
+            $('#jqvmap1_' + params.region).click();
         });
     }
 };
