@@ -14,7 +14,6 @@ public class EuscreenxlmapApplication extends Html5Application{
 		this.addReferid("footer", "/euscreenxlelements/footer");
 		this.addReferid("terms", "/euscreenxlelements/terms");
 		this.addReferid("linkinterceptor", "/euscreenxlelements/linkinterceptor");
-		this.addReferid("favicon", "/euscreenxlelements/favicon");
 		this.addReferid("history", "/euscreenxlelements/history");
 		
 		this.addReferidCSS("elements", "/euscreenxlelements/generic");
@@ -22,6 +21,10 @@ public class EuscreenxlmapApplication extends Html5Application{
 		this.addReferidCSS("jqvmap", "/euscreenxlelements/jqvmap");
 				
 	}
+ 	
+ 	public String getFavicon() {
+        return "/eddie/apps/euscreenxlelements/img/favicon.png";
+    }
  	
  	public void initMapTablet(Screen s){
  		System.out.println("initMap()");

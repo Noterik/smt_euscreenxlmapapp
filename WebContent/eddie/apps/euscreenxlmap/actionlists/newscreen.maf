@@ -1,6 +1,5 @@
 loadStylesheet(screen,generic)
 loadStylesheet(screen,specific)
-loadContent(screen,favicon)
 loadContent(screen,history)
 loadContent(screen,template)
 loadContent(screen,header)
