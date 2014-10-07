@@ -10,4 +10,12 @@ loadContent(screen,footer)
 loadContent(screen,mobilenav)
 loadContent(screen,linkinterceptor)
 setRole(screen,"mappage")
+
+.when device=desktop
 callServer(initMap,screen)
+
+.when device=atablet
+callServer(initMapTablet,screen)
+
+.when device=ipad
+callServer(initMapTablet,screen)

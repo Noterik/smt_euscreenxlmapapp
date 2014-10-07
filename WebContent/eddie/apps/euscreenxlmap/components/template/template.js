@@ -5,9 +5,16 @@ var Template = function () {
     var mapData = {};
     var mapSize = {};
     
+    function testDevice(){
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     self.initMap = function(data){
     	var params = JSON.parse(data);
-    	console.log("initMap(" + data + ")");
     	var args = {
 			map: 'europe_en',
             enableZoom: true,
@@ -17,7 +24,7 @@ var Template = function () {
             color: '#dedede',
             onRegionClick: function(element, code, region)
             {
-                // on region click
+            	                // on region click
             	// get region data
                 if(mapData[code] != undefined) {
 
@@ -75,14 +82,15 @@ var Template = function () {
             }
     	}
     	
+    	console.log("PARAMS");
+    	console.log(params);
     	// window width
         if(params.device == "tablet") {
         	// this is tablet horizontal 
-        	args.tooltip = false;
+        	args.showTooltip = false;
         } else {
 
-        	// activate tooltip, this is desktop
-        	args.tooltip = true; 
+        	args.showTooltip = true; 
         }
 
     	
@@ -98,12 +106,12 @@ var Template = function () {
 
         // load interactive map
         // using jqvmap (MIT License)
-        $('#vmap').vectorMap(args);
+        
         
     	// retrieve providers data (country, the amount of videos, audios etc.) from json file
         // file has to be updated
         $.getJSON( "/eddie/apps/euscreenxlelements/libs/jqvmap/data/euscreen.provider.data.json", function( data ) {
-            
+        	$('#vmap').vectorMap(args);
             // set variable
             mapData = data;
 
@@ -116,9 +124,7 @@ var Template = function () {
             for (var item in data) {
                 colorsST[item] = highlightColor;
             }
-            
-            console.log(colorsST);
-            
+                        
             // set
             $('#vmap').vectorMap('set', 'colors', colorsST);
             $('#jqvmap1_' + params.region).click();
