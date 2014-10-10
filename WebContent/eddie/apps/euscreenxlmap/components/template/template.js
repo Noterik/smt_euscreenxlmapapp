@@ -14,6 +14,7 @@ var Template = function () {
     }
     
     self.initMap = function(data){
+    	console.log("INIT MAP!!@!");
     	var params = JSON.parse(data);
     	var args = {
 			map: 'europe_en',
@@ -22,6 +23,18 @@ var Template = function () {
             backgroundColor: '#fff',
             borderColor: '#fff',
             color: '#dedede',
+            onRegionOut: function (element, code, region) {
+                document.body.style.cursor = "default";
+            },
+            onRegionOver: function(element, code, region)
+            {
+            	// show pointer on euscreen country
+                if(mapData[code] != undefined) {
+                    document.body.style.cursor = "pointer"; 
+                } else {
+                    event.preventDefault();
+                }
+            },
             onRegionClick: function(element, code, region)
             {
             	                // on region click
@@ -82,8 +95,6 @@ var Template = function () {
             }
     	}
     	
-    	console.log("PARAMS");
-    	console.log(params);
     	// window width
         if(params.device == "tablet") {
         	// this is tablet horizontal 
@@ -98,6 +109,8 @@ var Template = function () {
         mapSize.width = $('.maps').width();// + 30; // 30 is the padding
         mapSize.height =  (mapSize.width * 3) / 4 + 15;
         
+        console.log("WIDTH: " + mapSize.width); 
+        
         // set map size
         $('#vmap').css({
             width: mapSize.width +'px',
@@ -111,7 +124,10 @@ var Template = function () {
     	// retrieve providers data (country, the amount of videos, audios etc.) from json file
         // file has to be updated
         $.getJSON( "/eddie/apps/euscreenxlelements/libs/jqvmap/data/euscreen.provider.data.json", function( data ) {
-        	$('#vmap').vectorMap(args);
+        	
+    		$('#vmap').vectorMap(args);
+    		
+        	
             // set variable
             mapData = data;
 
@@ -127,7 +143,7 @@ var Template = function () {
                         
             // set
             $('#vmap').vectorMap('set', 'colors', colorsST);
-            $('#jqvmap1_' + params.region).click();
+    		$('#jqvmap1_' + params.region).click();
         });
     }
 };
