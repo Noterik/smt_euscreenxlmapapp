@@ -1,4 +1,9 @@
 setUrlTrigger(/lou/euscreen/content-map.html,/lou/domain/webtv/html5application/euscreenxlmap)
+setUrlTrigger(euscreen.eu@/lou/euscreen/content-map.html,/lou/domain/webtv/html5application/euscreenxlmap)
+setUrlTrigger(www.euscreen.eu@/lou/euscreen/content-map.html,/lou/domain/webtv/html5application/euscreenxlmap)
+setUrlTrigger(www.euscreenxl.eu@/lou/euscreen/content-map.html,/lou/domain/webtv/html5application/euscreenxlmap)
+setUrlTrigger(beta.euscreenxl.eu@/lou/euscreen/content-map.html,/lou/domain/webtv/html5application/euscreenxlmap)
+setUrlTrigger(beta.euscreen.eu@/lou/euscreen/content-map.html,/lou/domain/webtv/html5application/euscreenxlmap)
 loadStylesheet(screen,bootstrap)
 loadStylesheet(screen,fontawesome)
 loadStylesheet(screen,theme)
@@ -14,6 +19,7 @@ loadContent(screen,footer)
 loadContent(screen,mobilenav)
 loadContent(screen,linkinterceptor)
 setRole(screen,"mappage")
+callServer(initPage,screen)
 
 .when device=desktop
 callServer(initMap,screen)
@@ -23,3 +29,5 @@ callServer(initMapTablet,screen)
 
 .when device=ipad
 callServer(initMapTablet,screen)
+
+loadContent(screen,analytics);

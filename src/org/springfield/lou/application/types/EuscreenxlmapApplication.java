@@ -2,6 +2,7 @@ package org.springfield.lou.application.types;
 
 import org.json.simple.JSONObject;
 import org.springfield.lou.application.Html5Application;
+import org.springfield.lou.homer.LazyHomer;
 import org.springfield.lou.screen.Screen;
 
 public class EuscreenxlmapApplication extends Html5Application{
@@ -15,6 +16,7 @@ public class EuscreenxlmapApplication extends Html5Application{
 		this.addReferid("terms", "/euscreenxlelements/terms");
 		this.addReferid("linkinterceptor", "/euscreenxlelements/linkinterceptor");
 		this.addReferid("history", "/euscreenxlelements/history");
+		this.addReferid("analytics", "/euscreenxlelements/analytics");
 		
 		this.addReferidCSS("fontawesome", "/euscreenxlelements/fontawesome");
 		this.addReferidCSS("bootstrap", "/euscreenxlelements/bootstrap");
@@ -29,6 +31,17 @@ public class EuscreenxlmapApplication extends Html5Application{
  	public String getFavicon() {
         return "/eddie/apps/euscreenxlelements/img/favicon.png";
     }
+ 	
+ 	public void initPage(Screen s){
+ 		if(!this.inDevelMode()){
+			s.putMsg("linkinterceptor", "", "interceptLinks()");
+		}
+ 	}
+ 	
+ 	private boolean inDevelMode() {
+    	return LazyHomer.inDeveloperMode();
+    }
+
  	
  	public void initMapTablet(Screen s){
  		System.out.println("initMap()");

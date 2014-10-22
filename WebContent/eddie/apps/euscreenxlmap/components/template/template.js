@@ -14,8 +14,8 @@ var Template = function () {
     }
     
     self.initMap = function(data){
-    	console.log("INIT MAP!!@!");
     	var params = JSON.parse(data);
+    	var region = params.region;
     	var args = {
 			map: 'europe_en',
             enableZoom: true,
@@ -60,11 +60,11 @@ var Template = function () {
                         //var url = "<li><a href='search-results.html?provider="+item+"'>SEARCH "+item.toUpperCase()+" CONTENT</a></li>";
                         //providerLink += url;
                     	
-                    	var link = "<a href='/search.html?query=*";
+                    	var link = "<a href='/search.html";
                     	var providerObject = {
                     			provider: item
                     	}
-                    	link += "&activeFields=" + encodeURIComponent(JSON.stringify(providerObject)) + "' class='box-link'>";
+                    	link += "?activeFields=" + encodeURIComponent(JSON.stringify(providerObject)) + "' class='box-link'>";
                     	link += item.toUpperCase();
                     	link += " CONTENT</a>";                    	
                     	
@@ -79,8 +79,15 @@ var Template = function () {
                     }
 
                     // get general info like country name
-                    $('#selected-country').html(mapData[code].country);
-
+                    $('#selected-country').text(mapData[code].country);
+                    
+                    // replace 0 with "-"
+                    $.each(mediaAmount, function(key, value) {
+                        if(value == 0) {
+                            mediaAmount[key] = "-";
+                        }
+                    });
+                    
                     // set amount of medias
                     $('#selected-videos').html(mediaAmount['videos']);
                     $('#selected-audios').html(mediaAmount['audios']);
@@ -112,20 +119,6 @@ var Template = function () {
 
         	args.showTooltip = true; 
         }
-
-    	
-    	 // get vmap size
-        mapSize.width = $('.maps').width();// + 30; // 30 is the padding
-        mapSize.height =  (mapSize.width * 3) / 4 + 15;
-        
-        console.log("WIDTH: " + mapSize.width); 
-        
-        // set map size
-        $('#vmap').css({
-            width: mapSize.width +'px',
-            height: mapSize.height +'px'
-        });
-
         // load interactive map
         // using jqvmap (MIT License)
         
@@ -133,26 +126,38 @@ var Template = function () {
     	// retrieve providers data (country, the amount of videos, audios etc.) from json file
         // file has to be updated
         $.getJSON( "/eddie/apps/euscreenxlelements/libs/jqvmap/data/euscreen.provider.data.json", function( data ) {
-        	
-    		$('#vmap').vectorMap(args);
-    		
-        	
-            // set variable
-            mapData = data;
+        	setTimeout(function(){
+        		
+        		 // get vmap size
+                mapSize.width = $('.maps').width();// + 30; // 30 is the padding
+                mapSize.height =  (mapSize.width * 3) / 4 + 15;
+                
+                console.log("WIDTH: " + mapSize.width); 
+                
+                // set map size
+                $('#vmap').css({
+                    width: mapSize.width +'px',
+                    height: mapSize.height +'px'
+                });
+                
+        		$('#vmap').vectorMap(args);
+        		
+            	
+                // set variable
+                mapData = data;
 
-            // highlight countries in euscreen
-            // for easier search on the map
-            var colorsST = {},
-                highlightColor = "#c0c1c5";
+                // highlight countries in euscreen
+                // for easier search on the map
+                var colorsST = {},
+                    highlightColor = "#c0c1c5";
 
-            // loop
-            for (var item in data) {
-                colorsST[item] = highlightColor;
-            }
-                        
-            // set
-            $('#vmap').vectorMap('set', 'colors', colorsST);
-    		$('#jqvmap1_' + params.region).click();
+                // loop
+                for (var item in data) {
+                    colorsST[item] = highlightColor;
+                }
+                $('#vmap').vectorMap('set', 'colors', colorsST);
+                $('#jqvmap1_' + region).click();
+            }, 50);       
         });
     }
 };
