@@ -90,8 +90,9 @@ public class DynamicMapContent {
 					countryNode.put("id", countryCode);
 					countryNode.put("country", country);
 
-					providerNode = initProviderNode();
-
+					providerNode = 
+							initProviderNode(providerNamesMap.get(provider.toUpperCase()));
+					
 					providersNode = new JSONObject();
 					providersNode.put(provider, providerNode);
 
@@ -102,12 +103,13 @@ public class DynamicMapContent {
 					providersNode = (JSONObject) countryNode.get("providers");
 
 					if (!providersNode.containsKey(provider)) {
-						providerNode = initProviderNode();
+						providerNode = 
+								initProviderNode(providerNamesMap.get(provider.toUpperCase()));
+						
 						providersNode.put(provider, providerNode);
 					}
 
 					providerNode = (JSONObject) providersNode.get(provider);
-					providerNode.put("name", providerNamesMap.get(provider.toUpperCase()));
 					
 					// Increments the total number of videos, images and etc.
 					// to the specific provider
@@ -156,16 +158,16 @@ public class DynamicMapContent {
 
 	/**
 	 * Helper method that initiates the "providerNode" 
-	 * inside the main json structure
+	 * inside the main JSON structure.
 	 * 
-	 * @param providerNode
+	 * @param name
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public static JSONObject initProviderNode() {
+	public static JSONObject initProviderNode(String name) {
 		JSONObject providerNode = new JSONObject();
 
-		providerNode.put("name", "");
+		providerNode.put("name", name);
 		providerNode.put("videos", 0);
 		providerNode.put("images", 0);
 		providerNode.put("texts", 0);
@@ -255,7 +257,8 @@ public class DynamicMapContent {
 			}
 			System.out.println("---------------------------------------------");
 
-		} else {
+		} else {//providerNode.put("name", providerNamesMap.get(provider.toUpperCase()));
+			
 			System.out.println("Node is null!");
 		}
 	}
