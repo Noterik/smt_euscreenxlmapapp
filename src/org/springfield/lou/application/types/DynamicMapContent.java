@@ -107,7 +107,7 @@ public class DynamicMapContent {
 					}
 
 					providerNode = (JSONObject) providersNode.get(provider);
-					providerNode.put("name", providerNamesMap.get(provider));
+					providerNode.put("name", providerNamesMap.get(provider.toUpperCase()));
 					
 					// Increments the total number of videos, images and etc.
 					// to the specific provider
@@ -141,7 +141,7 @@ public class DynamicMapContent {
 									(Integer) providerNode.get("series") + 1);
 						}
 					}
-
+					
 					providersNode.put(provider, providerNode);
 					countryNode.put("providers", providersNode);
 				}
@@ -150,7 +150,7 @@ public class DynamicMapContent {
 
 			}
 		}
-	
+		
 		return mapObj;
 	}
 
@@ -288,7 +288,9 @@ public class DynamicMapContent {
 		Map<String, String> providerNamesMap = new TreeMap<String, String>();
 		
 		providerNamesMap.put("BBC", "British Broadcasting Corporation");
+		providerNamesMap.put("SASE", "Screen Archive South East");
 		providerNamesMap.put("ERT SA", "Ellinik&iacute; Radiofon&iacute;a Tile&oacute;rasi");
+		providerNamesMap.put("HeNAA", "Hellenic National Audiovisual Archive");
 		providerNamesMap.put("CT", "&#268;eská Televize");
 		providerNamesMap.put("KB", "Kungliga Biblioteket");
 		providerNamesMap.put("LCVA", "Lietuvos Centrinis Valstyb&ecirc;s Archyvas");
@@ -304,6 +306,7 @@ public class DynamicMapContent {
 		providerNamesMap.put("DW", "Deutsche Welle");
 		providerNamesMap.put("RTP","R&aacute;dio e Televis&atilde;o de Portugal");
 		providerNamesMap.put("RTBF", "Radio-T&eacute;l&eacute;vision Belge de la Communaut&eacute; Fran&ccedil;aise");
+		providerNamesMap.put("VRT", "Vlaamse Radio- en Televisieomroeporganisatie");
 		providerNamesMap.put("RTV SLO", "Radiotelevizija Slovenija");
 		providerNamesMap.put("RTÉ", "Raidi&oacute; Teilif&iacute;s &Eacute;ireann");
 		providerNamesMap.put("LUCE", "Istituto Luce Cinecitt&agrave;");
