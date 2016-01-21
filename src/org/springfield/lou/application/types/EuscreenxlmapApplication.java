@@ -62,7 +62,8 @@ public class EuscreenxlmapApplication extends Html5Application{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
- 		 		
+ 		
+ 		DynamicMapContent.getLastChange();
  	}
  	
  	private boolean inDevelMode() {
@@ -70,7 +71,8 @@ public class EuscreenxlmapApplication extends Html5Application{
     }
 
  	
- 	public void initMapTablet(Screen s){
+ 	@SuppressWarnings("unchecked")
+	public void initMapTablet(Screen s){
  		System.out.println("initMap()");
  		
  		String regionCode = s.getParameter("code");
@@ -85,19 +87,20 @@ public class EuscreenxlmapApplication extends Html5Application{
  		s.putMsg("template", "", "initMap(" + args + ")");
  	}
  	
- 	public void initMap(Screen s){
+ 	@SuppressWarnings("unchecked")
+	public void initMap(Screen s){
  		System.out.println("initMap()");
  		
  		String regionCode = s.getParameter("code");
  		
  		JSONObject args = new JSONObject();
- 		 		
+ 		
  		if(regionCode != null){
- 			args.put("region", regionCode);
+ 			args.put("region", regionCode);		
  		}
  		
+ 		args.put("mapInfo", DynamicMapContent.getJsonMapData());	
  		s.putMsg("template", "", "initMap(" + args + ")");
- 		
  	};
  	
 }
