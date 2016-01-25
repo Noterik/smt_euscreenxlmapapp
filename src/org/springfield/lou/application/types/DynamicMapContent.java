@@ -237,27 +237,31 @@ public class DynamicMapContent {
 		// Get the time of the last change in the DB
 		if (node != null) {
 			long currentTime = new Date().getTime();
-			Long timeDiff = currentTime-Long.parseLong(node.getProperty("lastChange"));
-			
-			// Printing some info to the console for testing
-			final Calendar cal = Calendar.getInstance();
-			cal.setTimeInMillis(Long.parseLong(node.getProperty("lastChange")));
-			System.out.println("-----------EUScreen Map Content-------------");
-			System.out.println("Last change made: "
-				+new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(cal.getTime()));
-			
-			long toMinutes = TimeUnit.MILLISECONDS.toMinutes(timeDiff);		
-			if(toMinutes/HOUR > ONE_HOUR) {
-				System.out.println("Since last change: " +toMinutes/HOUR+"-hours");
-			} else
-				System.out.println("Since last change: "+toMinutes+"-minutes");
-			
-			// If it was more than 24-hours update the data and insert into the DB
-			if(toMinutes/HOUR > DAY) {
+			if(node.getProperty("lastChange") != null){
+				Long timeDiff = currentTime-Long.parseLong(node.getProperty("lastChange"));
+				
+				// Printing some info to the console for testing
+				final Calendar cal = Calendar.getInstance();
+				cal.setTimeInMillis(Long.parseLong(node.getProperty("lastChange")));
+				System.out.println("-----------EUScreen Map Content-------------");
+				System.out.println("Last change made: "
+					+new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(cal.getTime()));
+				
+				long toMinutes = TimeUnit.MILLISECONDS.toMinutes(timeDiff);		
+				if(toMinutes/HOUR > ONE_HOUR) {
+					System.out.println("Since last change: " +toMinutes/HOUR+"-hours");
+				} else
+					System.out.println("Since last change: "+toMinutes+"-minutes");
+				
+				// If it was more than 24-hours update the data and insert into the DB
+				if(toMinutes/HOUR > DAY) {
+					insertMapNode();
+					System.out.println("It has been more than 24-hours since last update!");
+				}
+				System.out.println("--------------------------------------------");
+			}else{
 				insertMapNode();
-				System.out.println("It has been more than 24-hours since last update!");
 			}
-			System.out.println("--------------------------------------------");
 
 		} else {
 			
