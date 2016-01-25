@@ -218,8 +218,10 @@ public class DynamicMapContent {
 		// Nested sub-node holding the actual data
 		FsNode componentNode = new FsNode("component", "content-map");
 		componentNode.setProperty("lastChange", timeStamp.toString());
-		componentNode.setProperty("data", "![CDATA["+getJsonMapData().toString()+"]]");
+		componentNode.setProperty("data", getJsonMapData().toString());
 		Fs.insertNode(componentNode, "/domain/euscreenxl/user/cms/page/map");
+		
+		System.out.println("EUScreen's dynamic map content has been updated!");
 	}
 
 	/**
@@ -255,7 +257,7 @@ public class DynamicMapContent {
 				insertMapNode();
 				System.out.println("It has been more than 24-hours since last update!");
 			}
-			System.out.println("---------------------------------------------");
+			System.out.println("--------------------------------------------");
 
 		} else {//providerNode.put("name", providerNamesMap.get(provider.toUpperCase()));
 			
