@@ -259,27 +259,10 @@ public class DynamicMapContent {
 			}
 			System.out.println("--------------------------------------------");
 
-		} else {//providerNode.put("name", providerNamesMap.get(provider.toUpperCase()));
+		} else {
 			
 			System.out.println("Node is null!");
 		}
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public JSONObject getMapInfo() {
-		JSONObject mapInfo = new JSONObject();
-		
-		FsNode node = 
-				Fs.getNode("/domain/euscreenxl/user/cms/page/map/component/content-map");
-		
-		if(node!=null) {
-			
-		}
-		return mapInfo;
-		
 	}
 	
 	/**
