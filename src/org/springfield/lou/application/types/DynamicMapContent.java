@@ -284,7 +284,6 @@ public class DynamicMapContent {
 		providerNamesMap.put("ERT SA", "Ellinik&iacute; Radiofon&iacute;a Tile&oacute;rasi");
 		providerNamesMap.put("HeNAA", "Hellenic National Audiovisual Archive");
 		providerNamesMap.put("CT", "&#268;eská Televize");
-		providerNamesMap.put("KB", "Kungliga Biblioteket");
 		providerNamesMap.put("LCVA", "Lietuvos Centrinis Valstyb&ecirc;s Archyvas");
 		providerNamesMap.put("NINA", "Narodowy Instytut Audiowizualny");
 		providerNamesMap.put("Memoriav", "Memoriav-Association pour la sauvegarde de la m&eacutemoire audiovisuelle suisse");

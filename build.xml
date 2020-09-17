@@ -115,7 +115,7 @@
 	
 	<!-- Copile java code -->
 	<target name="compile" depends="compile.init">
-	  <javac srcdir="${sources.dir}" destdir="${build.dir}/classes" debug="on">
+	  <javac srcdir="${sources.dir}" destdir="${build.dir}/classes" debug="on" target="1.6">
 	    <classpath>
 	    	<path refid="provided.classpath"/>
 	        <path refid="compile.classpath"/>
