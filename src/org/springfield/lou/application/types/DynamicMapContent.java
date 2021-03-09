@@ -285,7 +285,7 @@ public class DynamicMapContent {
 		providerNamesMap.put("HeNAA", "Hellenic National Audiovisual Archive");
 		providerNamesMap.put("CT", "&#268;eská Televize");
 		providerNamesMap.put("LCVA", "Lietuvos Centrinis Valstyb&ecirc;s Archyvas");
-		providerNamesMap.put("NINA", "Narodowy Instytut Audiowizualny");
+		providerNamesMap.put("NINA", "FINA");
 		providerNamesMap.put("Memoriav", "Memoriav-Association pour la sauvegarde de la m&eacutemoire audiovisuelle suisse");
 		providerNamesMap.put("ORF", "&Ouml;sterreichischer Rundfunk");
 		providerNamesMap.put("TVC", "Televisi&oacute; de Catalunya");
