@@ -81,7 +81,15 @@ public class DynamicMapContent {
 			String provider = node.getProperty("provider");
 			if (provider != null && provider.equalsIgnoreCase("Deutsche Welle")) {
 				provider = "DW";
-			}
+			} 
+			
+			if (provider != null && provider.equalsIgnoreCase("Netherlands Institute for Sound and Vision")) {
+				provider = "NISV";
+			} 
+			
+			if (provider != null && provider.equalsIgnoreCase("Narodowy Instytut Audiowizualny")) {
+				provider = "NINA";
+			} 
 
 			// Add to record if there is a valid country and provider info
 			if (countryCode != null && provider != null) {
@@ -285,8 +293,8 @@ public class DynamicMapContent {
 		providerNamesMap.put("HeNAA", "Hellenic National Audiovisual Archive");
 		providerNamesMap.put("CT", "&#268;eská Televize");
 		providerNamesMap.put("LCVA", "Lietuvos Centrinis Valstyb&ecirc;s Archyvas");
-		providerNamesMap.put("NINA", "FINA");
-		providerNamesMap.put("Memoriav", "Memoriav-Association pour la sauvegarde de la m&eacutemoire audiovisuelle suisse");
+		providerNamesMap.put("NINA", "Narodowy Instytut Audiowizualny");
+		providerNamesMap.put("MEMORIAV", "Memoriav-Association pour la sauvegarde de la m&eacutemoire audiovisuelle suisse");
 		providerNamesMap.put("ORF", "&Ouml;sterreichischer Rundfunk");
 		providerNamesMap.put("TVC", "Televisi&oacute; de Catalunya");
 		providerNamesMap.put("TVR", "Televiziunea Rom&acirc;n&#259;");
@@ -303,6 +311,10 @@ public class DynamicMapContent {
 		providerNamesMap.put("LUCE", "Istituto Luce Cinecitt&agrave;");
 		providerNamesMap.put("TVP", "Telewizja Polska");
 		providerNamesMap.put("RAI", "Radiotelevisione Italiana S.p.A.");
+		providerNamesMap.put("MEMORIAV-SRF", "Schweizer Radio und Fernsehen");
+		providerNamesMap.put("MEMORIAV-RTS", "Radio T&eacute;l&eacute;vision Suisse");
+		providerNamesMap.put("RH", "Royal Holloway");
+		providerNamesMap.put("FINA", "Filmoteka Narodowa – Instytut Audiowizualny");
 		
 		return providerNamesMap;
 		
