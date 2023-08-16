@@ -16,8 +16,6 @@ public class EuscreenxlmapApplication extends Html5Application{
 		super(id); 
 		
 		this.addReferid("mobilenav", "/euscreenxlelements/mobilenav");
-		this.addReferid("header", "/euscreenxlelements/header");
-		this.addReferid("footer", "/euscreenxlelements/footer");
 		this.addReferid("terms", "/euscreenxlelements/terms");
 		this.addReferid("linkinterceptor", "/euscreenxlelements/linkinterceptor");
 		this.addReferid("history", "/euscreenxlelements/history");
