@@ -130,9 +130,7 @@ var Template = function () {
         // file has to be updated
     	// get vmap size
 		mapSize.width = $('.maps').width();// + 30; // 30 is the padding
-		mapSize.height = (mapSize.width * 3) / 4 + 15;
-
-		console.log("WIDTH: " + mapSize.width);
+		mapSize.height = $('html').height();//(mapSize.width * 3) / 4 + 15;
 
 		// set map size
 		$('#vmap').css({
